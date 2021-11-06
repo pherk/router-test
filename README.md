@@ -1,7 +1,9 @@
 
-## LitElement Website
+## Fore-Router-Webcomponents Test Website
 
-A Single Page Application(SPA) based on Web Components using LitElement, Vaadin Router for navigation and TypeScript.
+A Single Page Application(SPA) based on Web Components using [Fore](https://github.com/Jinntec/Fore), LitElement, Vaadin Router for navigation and TypeScript.
+
+**Don't use execpt for debugging ;-) it fails to register fx-controls**
 
 ## Quickstart
 
