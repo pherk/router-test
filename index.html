@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="Description" content="Nabu 2.0- Router-Test">
+  <base href="/">
+
+    <link href="./assets/css/fore.css" rel="stylesheet">
+    <!--    <link href="../resources/vars.css" rel="stylesheet">-->
+    <link href="./assets/css/demo.css" rel="stylesheet">
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #ededed;
+    }
+  </style>
+  <title>Router-Test</title>
+</head>
+
+<body>
+<div class="wrapper">
+    <fx-fore>
+        <fx-model>
+            <fx-instance>
+                <data>
+                    <user>John</user>
+                    <password></password>
+                    <inprogress>false</inprogress>
+                </data>
+            </fx-instance>
+<!--            <fx-bind ref="password" constraint="string-length(.) != 0" alert="login failed"></fx-bind>-->
+
+            <fx-submission id="login"
+                           method="urlencoded-post"
+                           url="/login"
+                           replace="none">
+                <fx-setvalue ref="inprogress" event="submit">true</fx-setvalue>
+                <fx-header name="Authorization" value="'auth'"></fx-header>
+                <fx-header name="Accept" value="'application/xml'"></fx-header>
+                <fx-header name="Another">bar</fx-header>
+
+                <fx-message event="submit-error">Login failed</fx-message>
+                <fx-action event="submit-done">
+                    <fx-message>Access granted</fx-message>
+                </fx-action>
+            </fx-submission>
+
+        </fx-model>
+
+    <main id="outlet"></main>
+    </fx-fore>
+</div>
+  <script type="module" src="./out-tsc/src/index.js"></script>
+  <script type="module" src="./assets/js/fore-debug.js"></script>
+</body>
+
+</html>
